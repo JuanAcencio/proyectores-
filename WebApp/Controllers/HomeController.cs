@@ -8,7 +8,27 @@ namespace WebApp.Controllers
     {
         public IActionResult Index()
         {
-            Proyector proyector = new Proyector()
+            var modelo = LoadData();
+            //var modelo= new LinkedList<Proyector>();
+
+            return View(modelo);
+        }
+        private IEnumerable<Proyector> LoadData() 
+        {
+            var proyectores= new List<Proyector>();
+
+            proyectores.Add(new Proyector()
+            {
+                id = 1,
+                Marca = "Epson",
+                Modelo = "ligth",
+                NumeroDeSerie = "123456",
+                Situacion = SituacionProyector.Bueno,
+                FechDeAlta = DateTime.Now,
+                FechDeBaja = DateTime.Now
+            });
+
+            proyectores.Add(new Proyector()
             {
                 id = 2,
                 Marca = "Epson",
@@ -16,11 +36,44 @@ namespace WebApp.Controllers
                 NumeroDeSerie = "123456",
                 Situacion = SituacionProyector.Bueno,
                 FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now 
-            };
+                FechDeBaja = DateTime.Now
+            });
 
-            return View(proyector);
+            proyectores.Add(new Proyector()
+            {
+                id = 3,
+                Marca = "Epson",
+                Modelo = "ligth",
+                NumeroDeSerie = "123456",
+                Situacion = SituacionProyector.Malo,
+                FechDeAlta = DateTime.Now,
+                FechDeBaja = DateTime.Now
+            });
+
+            proyectores.Add(new Proyector()
+            {
+                id = 4,
+                Marca = "Epson",
+                Modelo = "ligth",
+                NumeroDeSerie = "123456",
+                Situacion = SituacionProyector.Bueno,
+                FechDeAlta = DateTime.Now,
+                FechDeBaja = DateTime.Now
+            });
+
+            proyectores.Add(new Proyector()
+            {
+                id = 5,
+                Marca = "Epson",
+                Modelo = "ligth",
+                NumeroDeSerie = "123456",
+                Situacion = SituacionProyector.Regular,
+                FechDeAlta = DateTime.Now,
+                FechDeBaja = DateTime.Now
+            });
+            return proyectores;
         }
+            
 
         public IActionResult Privacy()
         {
