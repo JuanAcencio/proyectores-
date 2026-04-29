@@ -13,13 +13,13 @@ namespace WebApp.Controllers
 
             return View(modelo);
         }
-        private IEnumerable<Proyector> LoadData() 
+        private IEnumerable<Proyector> LoadData()
         {
-            var proyectores= new List<Proyector>();
+            var proyectores = new List<Proyector>();
 
             proyectores.Add(new Proyector()
             {
-                id = 1,
+                Id = 1,
                 Marca = "Epson",
                 Modelo = "ligth",
                 NumeroDeSerie = "123456",
@@ -30,7 +30,7 @@ namespace WebApp.Controllers
 
             proyectores.Add(new Proyector()
             {
-                id = 2,
+                Id = 2,
                 Marca = "Epson",
                 Modelo = "ligth",
                 NumeroDeSerie = "123456",
@@ -41,7 +41,7 @@ namespace WebApp.Controllers
 
             proyectores.Add(new Proyector()
             {
-                id = 3,
+                Id = 3,
                 Marca = "Epson",
                 Modelo = "ligth",
                 NumeroDeSerie = "123456",
@@ -52,7 +52,7 @@ namespace WebApp.Controllers
 
             proyectores.Add(new Proyector()
             {
-                id = 4,
+                Id = 4,
                 Marca = "Epson",
                 Modelo = "ligth",
                 NumeroDeSerie = "123456",
@@ -63,7 +63,7 @@ namespace WebApp.Controllers
 
             proyectores.Add(new Proyector()
             {
-                id = 5,
+                Id = 5,
                 Marca = "Epson",
                 Modelo = "ligth",
                 NumeroDeSerie = "123456",
@@ -73,9 +73,9 @@ namespace WebApp.Controllers
             });
             return proyectores;
         }
-            
 
-        public IActionResult Privacy()
+
+        public IActionResult Create() 
         {
             return View();
         }
