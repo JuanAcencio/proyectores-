@@ -7,7 +7,7 @@
         public string Modelo { get; set; }
         public string NumeroDeSerie { get; set; }
         public SituacionProyector Situacion  { get; set; }
-        public DateTime FechDeAlta { get; set; }
+        public DateTime FechaDeAlta { get; set; }
         public DateTime? FechDeBaja { get; set; }
 
 
@@ -15,7 +15,7 @@
 
     public enum SituacionProyector 
     {
-        Bueno,
+        Bueno=1,
         Regular,
         Malo
     }

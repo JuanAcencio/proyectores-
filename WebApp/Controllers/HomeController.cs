@@ -1,85 +1,39 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics;
 using WebApp.Models;
+using WebApp.Services;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private IProyectoresService _service;
+        public HomeController()
+        {
+            _service = new ProyectoresEnMemoriaService();
+        }
         public IActionResult Index()
         {
-            var modelo = LoadData();
-            //var modelo= new LinkedList<Proyector>();
+            var modelo = _service.GetAll();
+            
 
             return View(modelo);
         }
-        private IEnumerable<Proyector> LoadData()
-        {
-            var proyectores = new List<Proyector>();
-
-            proyectores.Add(new Proyector()
-            {
-                Id = 1,
-                Marca = "Epson",
-                Modelo = "ligth",
-                NumeroDeSerie = "123456",
-                Situacion = SituacionProyector.Bueno,
-                FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now
-            });
-
-            proyectores.Add(new Proyector()
-            {
-                Id = 2,
-                Marca = "Epson",
-                Modelo = "ligth",
-                NumeroDeSerie = "123456",
-                Situacion = SituacionProyector.Bueno,
-                FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now
-            });
-
-            proyectores.Add(new Proyector()
-            {
-                Id = 3,
-                Marca = "Epson",
-                Modelo = "ligth",
-                NumeroDeSerie = "123456",
-                Situacion = SituacionProyector.Malo,
-                FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now
-            });
-
-            proyectores.Add(new Proyector()
-            {
-                Id = 4,
-                Marca = "Epson",
-                Modelo = "ligth",
-                NumeroDeSerie = "123456",
-                Situacion = SituacionProyector.Bueno,
-                FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now
-            });
-
-            proyectores.Add(new Proyector()
-            {
-                Id = 5,
-                Marca = "Epson",
-                Modelo = "ligth",
-                NumeroDeSerie = "123456",
-                Situacion = SituacionProyector.Regular,
-                FechDeAlta = DateTime.Now,
-                FechDeBaja = DateTime.Now
-            });
-            return proyectores;
-        }
-
+       
 
         public IActionResult Create() 
         {
-            return View();
+            Proyector proyector= new Proyector();
+            proyector.FechaDeAlta = DateTime.Now;
+            return View(proyector);
         }
-
+        [HttpPost]
+        public IActionResult Create(Proyector proyector)
+        {
+            _service.AddProyector(proyector);
+            return RedirectToAction(nameof(Index));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
