@@ -3,15 +3,17 @@ using System.Data;
 using System.Diagnostics;
 using WebApp.Models;
 using WebApp.Services;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
         private IProyectoresService _service;
-        public HomeController()
+
+        public HomeController(IProyectoresService service)
         {
-            _service = new ProyectoresEnMemoriaService();
+            _service = service;
         }
         public IActionResult Index()
         {
@@ -24,9 +26,9 @@ namespace WebApp.Controllers
 
         public IActionResult Create() 
         {
-            Proyector proyector= new Proyector();
-            proyector.FechaDeAlta = DateTime.Now;
-            return View(proyector);
+            var model= new HomeCreateViewModel();
+            model.FechaDeAlta = DateTime.Now;
+            return View(model);
         }
         [HttpPost]
         public IActionResult Create(Proyector proyector)
