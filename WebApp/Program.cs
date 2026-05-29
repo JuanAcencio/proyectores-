@@ -11,8 +11,7 @@ builder.Services.AddControllersWithViews();
 //Agregar el contexto de la base de datos como un servicion
 builder.Services.AddDbContext<AppDbContext>(
      Options =>
-    //Options.UseSqlServer(builder.Configuration.GetConnectionString("conexion"))
-    Options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Proyectores;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30")
+     Options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"))
     );
 
 builder.Services.AddTransient<IProyectoresService, ProyectoresService>();
