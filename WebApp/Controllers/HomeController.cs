@@ -18,31 +18,85 @@ namespace WebApp.Controllers
         public IActionResult Index()
         {
             var modelo = _service.GetAll();
-            
+
 
             return View(modelo);
         }
-       
 
-        public IActionResult Create() 
+
+        public IActionResult Create()
         {
-            var model= new HomeCreateViewModel();
+            var model = new HomeCreateViewModel();
             model.FechaDeAlta = DateTime.Now;
             return View(model);
         }
         [HttpPost]
         public IActionResult Create(Proyector proyector)
         {
-            if (!ModelState .IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(proyector);
             }
-            else 
+            else
             {
                 _service.AddProyector(proyector);
                 return RedirectToAction(nameof(Index));
             }
-          
+
+        }
+
+        public IActionResult Details(int id)
+        {
+            var modelo = _service.GetProyectorById(id);
+            if (modelo != null)
+            {
+                return View(modelo);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Edit(int id)
+        {
+            var modelo = _service.GetProyectorById(id);
+            if (modelo != null)
+            {
+                return View(modelo);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Proyector proyector)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(proyector);
+            }
+            else
+            {
+                _service.Update(proyector);
+                return RedirectToAction(nameof(Index));
+            }
+
+        }
+        public IActionResult Delete(int id)
+        {
+            var modelo = _service.GetProyectorById(id);
+            if (modelo != null)
+            {
+                return View(modelo);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id) 
+        {
+            var proyector=_service.GetProyectorById(id);
+            if (proyector != null) 
+            {
+                _service.Delete(proyector);
+
+            }
+            return RedirectToAction(nameof(Index));
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

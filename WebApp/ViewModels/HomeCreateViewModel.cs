@@ -20,7 +20,7 @@ namespace WebApp.ViewModels
         public DateTime FechaDeAlta { get; set; } = DateTime.Now;
 
        
-        public DateTime? FechDeBaja { get; set; }
+        public DateTime? FechaDeBaja { get; set; }
 
     }
 }

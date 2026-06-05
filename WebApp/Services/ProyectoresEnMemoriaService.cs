@@ -30,7 +30,7 @@
                     NumeroDeSerie = "123456",
                     Situacion = SituacionProyector.Bueno,
                     FechaDeAlta = DateTime.Now,
-                    FechDeBaja = DateTime.Now
+                    FechaDeBaja = DateTime.Now
                 });
 
                 proyectores.Add(new Proyector()
@@ -41,7 +41,7 @@
                     NumeroDeSerie = "456789",
                     Situacion = SituacionProyector.Regular,
                     FechaDeAlta = DateTime.Now,
-                    FechDeBaja = DateTime.Now
+                    FechaDeBaja = DateTime.Now
                 });
 
                 proyectores.Add(new Proyector()
@@ -52,7 +52,7 @@
                     NumeroDeSerie = "123456",
                     Situacion = SituacionProyector.Malo,
                     FechaDeAlta = DateTime.Now,
-                    FechDeBaja = DateTime.Now
+                    FechaDeBaja = DateTime.Now
                 });
 
                 proyectores.Add(new Proyector()
@@ -63,7 +63,7 @@
                     NumeroDeSerie = "123456",
                     Situacion = SituacionProyector.Bueno,
                     FechaDeAlta = DateTime.Now,
-                    FechDeBaja = DateTime.Now
+                    FechaDeBaja = DateTime.Now
                 });
 
                 proyectores.Add(new Proyector()
@@ -74,10 +74,33 @@
                     NumeroDeSerie = "123456",
                     Situacion = SituacionProyector.Regular,
                     FechaDeAlta = DateTime.Now,
-                    FechDeBaja = DateTime.Now
+                    FechaDeBaja = DateTime.Now
                 });
                 return proyectores;
+
             }
 
+        public Proyector? GetProyectorById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Proyector proyector)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Proyector? Delete(Proyector proyector)
+        {
+            throw new NotImplementedException();
         }
     }
+       
+        
+    }
+       

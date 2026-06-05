@@ -23,7 +23,7 @@ namespace WebApp.Models
         public DateTime FechaDeAlta { get; set; } = DateTime.Now;
         
         [DataType(DataType.Date)]
-        public DateTime? FechDeBaja { get; set; }
+        public DateTime? FechaDeBaja { get; set; }
 
 
     }

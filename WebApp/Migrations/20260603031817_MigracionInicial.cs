@@ -22,7 +22,7 @@ namespace WebApp.Migrations
                     NumeroDeSerie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Situacion = table.Column<int>(type: "int", nullable: false),
                     FechaDeAlta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechDeBaja = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    FechaDeBaja = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

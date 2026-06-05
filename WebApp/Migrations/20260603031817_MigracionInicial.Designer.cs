@@ -12,7 +12,7 @@ using WebApp.Data;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260527150506_MigracionInicial")]
+    [Migration("20260603031817_MigracionInicial")]
     partial class MigracionInicial
     {
         /// <inheritdoc />
@@ -33,10 +33,10 @@ namespace WebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("FechDeBaja")
+                    b.Property<DateTime>("FechaDeAlta")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaDeAlta")
+                    b.Property<DateTime?>("FechaDeBaja")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Marca")
