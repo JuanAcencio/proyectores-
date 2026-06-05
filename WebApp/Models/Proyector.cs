@@ -26,6 +26,13 @@ namespace WebApp.Models
         public DateTime? FechaDeBaja { get; set; }
 
 
+        [Required]
+        public int DepartamentoId { get; set; }
+
+        //Propiedades de navegacion de la relacion
+
+        public Departamento Departamento { get;}
+
     }
 
     public enum SituacionProyector 
